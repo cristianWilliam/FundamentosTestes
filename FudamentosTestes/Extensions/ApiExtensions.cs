@@ -9,7 +9,7 @@ internal static class ApiExtensions
     public static void AddDependencies(this IServiceCollection services)
     {
         // DI
-        services.AddTransient<ICarChassiProvider, CarChassiProvider>();
+        services.AddTransient<ICarChassiValidatorService, CarChassiValidatorService>();
         
         // Add DB
         services.AddDbContext<AppDbContext>(options =>

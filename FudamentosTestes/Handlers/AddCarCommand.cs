@@ -3,4 +3,4 @@ using MediatR;
 
 namespace FudamentosTestes.Handlers;
 
-public record AddCarCommand(string Nome) : IRequest<CarDto>;
+internal record AddCarCommand(string Nome) : IRequest<CarDto>;

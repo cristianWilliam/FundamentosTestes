@@ -7,14 +7,15 @@ using MediatR;
 
 namespace FudamentosTestes.Handlers;
 
-internal class AddCarCommandHandler(ICarChassiProvider carChassiProvider, AppDbContext appDbContext) : IRequestHandler<AddCarCommand, CarDto>
+internal class AddCarCommandHandler(ICarChassiValidatorService carChassiValidatorService, AppDbContext appDbContext) 
+    : IRequestHandler<AddCarCommand, CarDto>
 {
     public async Task<CarDto> Handle(AddCarCommand request, CancellationToken cancellationToken)
     {
         // Generating Id
         var id = Guid.NewGuid();
 
-        var isValidChassi = await carChassiProvider.CheckIfValidAsync(id, true, cancellationToken);
+        var isValidChassi = await carChassiValidatorService.CheckIfValidAsync(id, cancellationToken);
 
         if (!isValidChassi)
             throw new InvalidChassiException($"[{request.Nome}] chassi invalido!");

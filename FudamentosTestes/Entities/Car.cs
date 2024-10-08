@@ -10,5 +10,4 @@ internal class Car
         Id = id;
         Name = name;
     }
-    
 }
