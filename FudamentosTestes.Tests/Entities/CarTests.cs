@@ -5,6 +5,7 @@ using Xunit.Abstractions;
 
 namespace FudamentosTestes.Tests.Entities;
 
+[Trait("Category", "Car")]
 public sealed class CarTests
 {
     private readonly Faker _faker = new("pt_BR");
@@ -18,7 +19,6 @@ public sealed class CarTests
     [Theory]
     [InlineData("Carro 1")]
     [InlineData("Carro 2")]
-    [Trait("Approach", "Unit Testing")]
     public void TheoryConstructor_GivenAllParameters_ThenShouldSetThePropertiesCorrectly(string expectedCarName)
     {
         // Given All Parameters
@@ -35,7 +35,6 @@ public sealed class CarTests
     }
     
     [Fact]
-    [Trait("Approach", "Unit Testing")]
     public void NoFakerConstructor_GivenAllParameters_ThenShouldSetThePropertiesCorrectly()
     {
         // Given All Parameters
@@ -53,7 +52,6 @@ public sealed class CarTests
     }
     
     [Fact]
-    [Trait("Approach", "Unit Testing")]
     public void FakerConstructor_GivenAllParameters_ThenShouldSetThePropertiesCorrectly()
     {
         // Given All Parameters

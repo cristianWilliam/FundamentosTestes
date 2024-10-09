@@ -1,6 +1,6 @@
 namespace FudamentosTestes.Services;
 
-internal interface ICarChassiValidatorService
+public interface ICarChassiValidatorService
 {
     Task<bool> CheckIfValidAsync(Guid id, CancellationToken ct);
 }
